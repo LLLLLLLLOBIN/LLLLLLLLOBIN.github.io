@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8">
   
-  <title>天道酬勤-Drop_ice 的第一篇博客 | Drop_ice的博客</title>
+  <title>天道酬勤-SQL注入原理 | Drop_ice的博客</title>
 
   <!-- keywords -->
   
@@ -11,17 +11,17 @@
   
 
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="如何搭建我的Blog？主要使用到的工具：Git 和node.js 和Hexo实现方式：Hexo + Github 搭建博客网站 （具体流程见下文） Step 1：进入HEXO的官网： Hexo找到“Get started”按钮，点击进入Step 2：确保你有充分准备以下工作：1.一个GitHub账号，若无可以前往官网进行注册GitHub2.成功安装Git,Node.js ps.版本选择最新的就可以">
+  <meta name="description" content="什么是SQL结构化查询语言SQL（Structured Query Language）SQL让我们可以访问数据库 什么是SQL注入指用户提交的数据可以被数据库解析执行ps.在用户刻意为之的情况下，这会造成巨大的威胁 1只要是前端写的SQL语法被后端执行了，那么这就叫sql注入 SQL注入与简单绕过原理用一个实际的简单情景作为例子：有一个简单的登录网页需要输入用户名和密码：我们可以进行以下输入实现免">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Drop_ice 的第一篇博客">
-<meta property="og:url" content="http://example.com/2022/07/26/Drop-ice-%E7%9A%84%E7%AC%AC%E4%B8%80%E7%AF%87%E5%8D%9A%E5%AE%A2/index.html">
+<meta property="og:title" content="SQL注入原理">
+<meta property="og:url" content="http://example.com/2022/07/28/SQL%E6%B3%A8%E5%85%A5%E5%8E%9F%E7%90%86/index.html">
 <meta property="og:site_name" content="Drop_ice的博客">
-<meta property="og:description" content="如何搭建我的Blog？主要使用到的工具：Git 和node.js 和Hexo实现方式：Hexo + Github 搭建博客网站 （具体流程见下文） Step 1：进入HEXO的官网： Hexo找到“Get started”按钮，点击进入Step 2：确保你有充分准备以下工作：1.一个GitHub账号，若无可以前往官网进行注册GitHub2.成功安装Git,Node.js ps.版本选择最新的就可以">
+<meta property="og:description" content="什么是SQL结构化查询语言SQL（Structured Query Language）SQL让我们可以访问数据库 什么是SQL注入指用户提交的数据可以被数据库解析执行ps.在用户刻意为之的情况下，这会造成巨大的威胁 1只要是前端写的SQL语法被后端执行了，那么这就叫sql注入 SQL注入与简单绕过原理用一个实际的简单情景作为例子：有一个简单的登录网页需要输入用户名和密码：我们可以进行以下输入实现免">
 <meta property="og:locale" content="zh_CN">
-<meta property="article:published_time" content="2022-07-26T07:00:38.000Z">
-<meta property="article:modified_time" content="2022-07-28T03:00:39.801Z">
+<meta property="article:published_time" content="2022-07-28T06:27:51.000Z">
+<meta property="article:modified_time" content="2022-07-28T06:58:49.643Z">
 <meta property="article:author" content="Drop_ice">
-<meta property="article:tag" content="博客搭建">
+<meta property="article:tag" content="Web学习">
 <meta name="twitter:card" content="summary">
   
     <link rel="alternative" href="/atom.xml" title="Drop_ice的博客" type="application/atom+xml">
@@ -174,11 +174,11 @@
 		</header>				
 	</div>
 </nav>
-      <div class="body-wrap"><article id="post-Drop-ice-的第一篇博客" class="article article-type-post" itemscope itemprop="blogPost">
+      <div class="body-wrap"><article id="post-SQL注入原理" class="article article-type-post" itemscope itemprop="blogPost">
   
     <div class="article-meta">
-      <a href="/2022/07/26/Drop-ice-%E7%9A%84%E7%AC%AC%E4%B8%80%E7%AF%87%E5%8D%9A%E5%AE%A2/" class="article-date">
-  	<time datetime="2022-07-26T07:00:38.000Z" itemprop="datePublished">2022-07-26</time>
+      <a href="/2022/07/28/SQL%E6%B3%A8%E5%85%A5%E5%8E%9F%E7%90%86/" class="article-date">
+  	<time datetime="2022-07-28T06:27:51.000Z" itemprop="datePublished">2022-07-28</time>
 </a>
     </div>
   
@@ -191,7 +191,7 @@
         
   
     <h1 class="article-title" itemprop="name">
-      Drop_ice 的第一篇博客
+      SQL注入原理
       
     </h1>
   
@@ -201,7 +201,7 @@
       <div class="article-info article-info-post">
         
 	<div class="article-tag tagcloud">
-		<ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E5%8D%9A%E5%AE%A2%E6%90%AD%E5%BB%BA/" rel="tag">博客搭建</a></li></ul>
+		<ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Web%E5%AD%A6%E4%B9%A0/" rel="tag">Web学习</a></li></ul>
 	</div>
 
         
@@ -213,8 +213,16 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h2 id="如何搭建我的Blog？"><a href="#如何搭建我的Blog？" class="headerlink" title="如何搭建我的Blog？"></a>如何搭建我的Blog？</h2><p>主要使用到的工具：<a target="_blank" rel="noopener" href="https://git-scm.com/">Git</a> 和<a target="_blank" rel="noopener" href="https://nodejs.org/zh-cn/">node.js</a> 和<a target="_blank" rel="noopener" href="https://hexo.io/">Hexo</a><br>实现方式：Hexo + Github 搭建博客网站 （具体流程见下文）</p>
-<p>Step 1：<br>进入HEXO的官网： <a target="_blank" rel="noopener" href="https://hexo.io/">Hexo</a><br>找到“Get started”按钮，点击进入<br>Step 2：<br>确保你有充分准备以下工作：<br>1.一个GitHub账号，若无可以前往官网进行注册<a target="_blank" rel="noopener" href="https://github.com/">GitHub</a><br>2.成功安装Git,Node.js ps.版本选择最新的就可以<br>step 3:<br>在任意位置创建一个HexoBlog文件夹用于存放相关文件<br>在其根目录下打开控制台 输入 npm install -g hexo -cli<br>修改权限 chmod -R 777&#x2F;usr&#x2F;local&#x2F;lib<br>step 4:<br>初始化一个Hexo Blog<br>同样是在上述根目录下打开控制台 输入 hexo init blog<br>此时在控制台输入指令 hexo s就可以在本地进行查看博客<br>step 5：<br>在Github上新建一个项目 项目名称格式必须为 用户名.github.io<br>手动配置SSH密钥（具体步骤可上网百度）<br>step 6：<br>更改目录下配置文件_config.yml 进行如下更改：<br>“repo： <a href="mailto:&#103;&#105;&#x74;&#64;&#x67;&#x69;&#116;&#104;&#117;&#98;&#46;&#99;&#x6f;&#x6d;">&#103;&#105;&#x74;&#64;&#x67;&#x69;&#116;&#104;&#117;&#98;&#46;&#99;&#x6f;&#x6d;</a>:你的用户名&#x2F;你的用户名.github.io.git”<br>branch: main（此处是因为分支是main）<br>step 7:<br>初始化git：git init<br>安装hexo-deployer-git<br>输入如下命令： npm install hexo-deployer-git –save<br>输入配置指令：hexo clean  hexo g</p>
+        <h2 id="什么是SQL"><a href="#什么是SQL" class="headerlink" title="什么是SQL"></a>什么是SQL</h2><p>结构化查询语言SQL（Structured Query Language）<br>SQL让我们可以访问数据库</p>
+<h2 id="什么是SQL注入"><a href="#什么是SQL注入" class="headerlink" title="什么是SQL注入"></a>什么是SQL注入</h2><p>指用户提交的数据可以被数据库解析执行<br>ps.在用户刻意为之的情况下，这会造成巨大的威胁</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">只要是前端写的SQL语法被后端执行了，那么这就叫sql注入</span><br></pre></td></tr></table></figure>
+<h2 id="SQL注入与简单绕过原理"><a href="#SQL注入与简单绕过原理" class="headerlink" title="SQL注入与简单绕过原理"></a>SQL注入与简单绕过原理</h2><p>用一个实际的简单情景作为例子：<br>有一个简单的登录网页需要输入用户名和密码：<br>我们可以进行以下输入实现免账号登录：<br>用户名：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="string">&quot; &#x27; or 1 = 1 – &quot;</span></span><br></pre></td></tr></table></figure>
+<p>密码：（此处为空）<br>理论上我们会从后台获取如下SQL语句：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">String sql = <span class="string">&quot;select * from user_table where username=’ “+userName+” ’ and password=’ “+password+” &#x27;&quot;</span>;</span><br></pre></td></tr></table></figure>
+<p>当输入了上面的用户名和密码后就会变成：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">SELECT * FROM user_table WHERE username=‘’or 1 = 1 – and password=’’</span><br></pre></td></tr></table></figure>
+<p>ps.”–”表示注释后面的语句</p>
 
       
     </div>
@@ -224,18 +232,9 @@
     
 <nav id="article-nav">
   
-    <a href="/2022/07/28/SSH-%E5%8F%A3%E4%BB%A4%E7%99%BB%E5%BD%95/" id="article-nav-newer" class="article-nav-link-wrap">
-      <strong class="article-nav-caption">&lt;</strong>
-      <div class="article-nav-title">
-        
-          SSH 口令登录
-        
-      </div>
-    </a>
   
-  
-    <a href="/2022/07/26/hello-world/" id="article-nav-older" class="article-nav-link-wrap">
-      <div class="article-nav-title">Hello World</div>
+    <a href="/2022/07/28/Linux%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F%E5%9F%BA%E7%A1%80%E6%8C%87%E4%BB%A4/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">Linux操作系统基础指令</div>
       <strong class="article-nav-caption">&gt;</strong>
     </a>
   
@@ -245,7 +244,7 @@
 </article>
 
 
-<div class="ds-share share" data-thread-key="Drop-ice-的第一篇博客" data-title="Drop_ice 的第一篇博客" data-url="http://example.com/2022/07/26/Drop-ice-%E7%9A%84%E7%AC%AC%E4%B8%80%E7%AF%87%E5%8D%9A%E5%AE%A2/"  data-images="/images/introduce2.png" data-content="Drop_ice 的第一篇博客">
+<div class="ds-share share" data-thread-key="SQL注入原理" data-title="SQL注入原理" data-url="http://example.com/2022/07/28/SQL%E6%B3%A8%E5%85%A5%E5%8E%9F%E7%90%86/"  data-images="/images/introduce2.png" data-content="SQL注入原理">
     <div class="ds-share-inline">
       <ul  class="ds-share-icons-16">
       	<li data-toggle="ds-share-icons-more"><a class="ds-more" href="javascript:void(0);">分享到：</a></li>

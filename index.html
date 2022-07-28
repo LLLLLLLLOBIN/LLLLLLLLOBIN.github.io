@@ -118,7 +118,7 @@
 				
 				<section class="switch-part switch-part2">
 					<div class="widget tagcloud" id="js-tagcloud">
-						<a href="/tags/Web%E5%AD%A6%E4%B9%A0/" style="font-size: 10px;">Web学习</a> <a href="/tags/%E5%8D%9A%E5%AE%A2%E6%90%AD%E5%BB%BA/" style="font-size: 10px;">博客搭建</a> <a href="/tags/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F/" style="font-size: 10px;">操作系统</a>
+						<a href="/tags/Web%E5%AD%A6%E4%B9%A0/" style="font-size: 20px;">Web学习</a> <a href="/tags/%E5%8D%9A%E5%AE%A2%E6%90%AD%E5%BB%BA/" style="font-size: 10px;">博客搭建</a> <a href="/tags/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F/" style="font-size: 10px;">操作系统</a>
 					</div>
 				</section>
 				
@@ -173,6 +173,74 @@
 	</div>
 </nav>
       <div class="body-wrap">
+  
+    <article id="post-SQL注入原理" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/2022/07/28/SQL%E6%B3%A8%E5%85%A5%E5%8E%9F%E7%90%86/" class="article-date">
+  	<time datetime="2022-07-28T06:27:51.000Z" itemprop="datePublished">2022-07-28</time>
+</a>
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2022/07/28/SQL%E6%B3%A8%E5%85%A5%E5%8E%9F%E7%90%86/">
+        SQL注入原理
+        
+      </a>
+    </h1>
+  
+
+      </header>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h2 id="什么是SQL"><a href="#什么是SQL" class="headerlink" title="什么是SQL"></a>什么是SQL</h2><p>结构化查询语言SQL（Structured Query Language）<br>SQL让我们可以访问数据库</p>
+<h2 id="什么是SQL注入"><a href="#什么是SQL注入" class="headerlink" title="什么是SQL注入"></a>什么是SQL注入</h2><p>指用户提交的数据可以被数据库解析执行<br>ps.在用户刻意为之的情况下，这会造成巨大的威胁</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">只要是前端写的SQL语法被后端执行了，那么这就叫sql注入</span><br></pre></td></tr></table></figure>
+<h2 id="SQL注入与简单绕过原理"><a href="#SQL注入与简单绕过原理" class="headerlink" title="SQL注入与简单绕过原理"></a>SQL注入与简单绕过原理</h2><p>用一个实际的简单情景作为例子：<br>有一个简单的登录网页需要输入用户名和密码：<br>我们可以进行以下输入实现免账号登录：<br>用户名：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="string">&quot; &#x27; or 1 = 1 – &quot;</span></span><br></pre></td></tr></table></figure>
+<p>密码：（此处为空）<br>理论上我们会从后台获取如下SQL语句：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">String sql = <span class="string">&quot;select * from user_table where username=’ “+userName+” ’ and password=’ “+password+” &#x27;&quot;</span>;</span><br></pre></td></tr></table></figure>
+<p>当输入了上面的用户名和密码后就会变成：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">SELECT * FROM user_table WHERE username=‘’or 1 = 1 – and password=’’</span><br></pre></td></tr></table></figure>
+<p>ps.”–”表示注释后面的语句</p>
+
+      
+    </div>
+    
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Web%E5%AD%A6%E4%B9%A0/" rel="tag">Web学习</a></li></ul>
+	</div>
+
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+      
+    
+  </div>
+  
+</article>
+
+
+
+
+
+
+
   
     <article id="post-Linux操作系统基础指令" class="article article-type-post" itemscope itemprop="blogPost">
   
