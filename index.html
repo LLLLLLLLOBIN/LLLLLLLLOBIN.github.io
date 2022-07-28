@@ -174,6 +174,67 @@
 </nav>
       <div class="body-wrap">
   
+    <article id="post-关于Session" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/2022/07/28/%E5%85%B3%E4%BA%8ESession/" class="article-date">
+  	<time datetime="2022-07-28T08:23:21.000Z" itemprop="datePublished">2022-07-28</time>
+</a>
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2022/07/28/%E5%85%B3%E4%BA%8ESession/">
+        关于Session
+        
+      </a>
+    </h1>
+  
+
+      </header>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h2 id="基本介绍"><a href="#基本介绍" class="headerlink" title="基本介绍"></a>基本介绍</h2><p>Seesion机制概括起来就是在服务端保持HTTP状态信息。<br>Web服务端为了加速session的读取与存储在服务器中会专门开辟一块内存用于保存服务器端所有的session，每个session都会有一个独特的id来作为标识。<br>根据客户端传来的jsessionid（cookie）中，找到对应的服务端的session。</p>
+<h2 id="保存sessionID的方式"><a href="#保存sessionID的方式" class="headerlink" title="保存sessionID的方式"></a>保存sessionID的方式</h2><p>1.cookie中<br>通过一个特殊的cookie，name为jsessionid，value为服务器端某个session的ID，默认的方式。但是当浏览器禁用cookie后session就会失效<br>2.url重写<br>当浏览器禁用cookie时使用<br>将session的id附加在URL路径的后面。附加的方式有两种：<br>一种是作为URL路径的附加信息，另一种是作为查询字符串附加在URL后面。</p>
+<h2 id="基本原理"><a href="#基本原理" class="headerlink" title="基本原理"></a>基本原理</h2><p>当客户端发送一个请求到服务器端时，服务器会先检查请求中是否含有sessionid（存在于cookie中或者URL中）<br>1.如果不存在说明该客户端是第一次向服务器发送请求，那么服务器端就会为该用户创建一个session对象。并将该session对象的sessionid放到响应头的set-cookie中，这样下次请求时cookie中就会包含一个name为jsessionid的cookie并响应给客户端<br>2.如果存在sessionid，服务器端就会查找是否存在与这个id相对应的session，如果有就是用，没有就创建一个。<br>综上所述，session和cookie是密不可分的。</p>
+
+      
+    </div>
+    
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Web%E5%AD%A6%E4%B9%A0/" rel="tag">Web学习</a></li></ul>
+	</div>
+
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+      
+    
+  </div>
+  
+</article>
+
+
+
+
+
+
+
+  
     <article id="post-关于Cookie" class="article article-type-post" itemscope itemprop="blogPost">
   
     <div class="article-meta">
