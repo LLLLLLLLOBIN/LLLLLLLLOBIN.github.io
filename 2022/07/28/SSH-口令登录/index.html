@@ -19,7 +19,7 @@
 <meta property="og:description" content="SSH简介SSH 是”Secure Shell”的简写是一个指定在应用层基础上的网络安全协议专门为远程登录会话（也可以为Windows远程登录Linux服务器进行文件互传）以及其他网络服务提供安全性的协议通过SSH可以对所有传输的数据进行加密，也能够防止DNS欺骗和IP欺骗。还有一个好处就是由于传输的数据都是经过加密的从而大大提升了数据的传输速度。 SSH安全机制采用非对称加密算法（RSA）加密了">
 <meta property="og:locale" content="zh_CN">
 <meta property="article:published_time" content="2022-07-28T02:33:01.000Z">
-<meta property="article:modified_time" content="2022-07-28T02:57:37.962Z">
+<meta property="article:modified_time" content="2022-07-28T03:23:51.815Z">
 <meta property="article:author" content="Drop_ice">
 <meta property="article:tag" content="Web学习">
 <meta name="twitter:card" content="summary">
@@ -216,6 +216,7 @@
         <h2 id="SSH简介"><a href="#SSH简介" class="headerlink" title="SSH简介"></a>SSH简介</h2><p>SSH 是”Secure Shell”的简写<br>是一个指定在应用层基础上的网络安全协议<br>专门为远程登录会话（也可以为Windows远程登录Linux服务器进行文件互传）以及其他网络服务提供安全性的协议<br>通过SSH可以对所有传输的数据进行加密，也能够防止DNS欺骗和IP欺骗。还有一个好处就是由于传输的数据都是经过加密的从而大大提升了数据的传输速度。</p>
 <h2 id="SSH安全机制"><a href="#SSH安全机制" class="headerlink" title="SSH安全机制"></a>SSH安全机制</h2><p>采用非对称加密算法（RSA）加密了所有的传输数据<br>对比起来，传统的网络服务程序如FTP等都是在网络上使用明文传送数据、用户账号、用户口令，很容易收到中间人攻击方式的攻击<br>（冒充真正服务器接受用户的数据）</p>
 <h2 id="SSH两种安全机制"><a href="#SSH两种安全机制" class="headerlink" title="SSH两种安全机制"></a>SSH两种安全机制</h2><p>级别一（基于口令的安全验证）：知道自己的账号和口令就可以登录到远程主机，所有传输的数据都会被加密，但不能保证连接的服务器是你真正想要连接的服务器（可能收到中间人攻击方式攻击）<br>级别二（基于密钥的安全验证）：为自己创造一对密钥并将其放在需要访问的服务器上。每当你需要连接到SSH服务器上，客户端软件就会向服务器发送请求，请求用你创建的密钥进行安全验证。服务器收到请求后现在服务器下你的主目录下寻找你的公钥，然后与你发送过来的公钥进行对比。如果两个密钥一致，服务器就会用公钥加密质询（challenge）并发送给软件客户端软件。客户端软件收到质询后就可以用你的私钥在本地解密再发送给服务器完成登录。</p>
+<h2 id="SSH的一些用法"><a href="#SSH的一些用法" class="headerlink" title="SSH的一些用法"></a>SSH的一些用法</h2><p>1.SSH 远程登录（分&#x3D;分为口令登录和公钥登录）<br>2.使用SSH在远程后台不中断地跑程序<br>3.SSH数据传输<br>4.scp跨机远程拷贝<br>5.SSH端口操作（绑定本地端口、本地端口转发、远程端口转发）</p>
 
       
     </div>
